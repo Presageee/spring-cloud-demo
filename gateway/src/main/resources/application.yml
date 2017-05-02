@@ -1,0 +1,19 @@
+eureka:
+  client:
+    fetch-registry: true
+    enabled: true
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+server:
+  port: 8769
+spring:
+  application:
+    name: zuulGateWay
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      service-id: ribbon-consumer
+    api-c:
+      path: /api-c/**
+      servuce-id: feign-consumer
